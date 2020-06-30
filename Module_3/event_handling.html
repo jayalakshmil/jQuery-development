@@ -1,0 +1,55 @@
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Event handling</title>
+   </head>
+   <body>
+       <div>
+           <p id="blind_example" style="border: 2px solid lightcoral; margin: 20px;">
+               Click Me 
+           </p>
+       </div>
+       <div id="colorbox" style="width: 300px;height: 300px; background-color: lightcoral;border: 2px solid steelblue;">
+        <span id="message" style="color: wheat; font-size: 20px;"></span>
+       </div>
+       <div style="font-size: 50px;margin: 50px;">
+           <a id="target-link" target="_blank" href="https://www.google.com">Google</a>
+       </div>
+       <script src="jquery-3.5.1.min.js"></script>
+       <script>
+           $(document).ready(function(){
+            $('#blind_example').bind('mouseenter ',function(){
+                console.log('Entering the world');
+            });
+            $('#blind_example').bind('mouseleave',function(){
+                console.log('Leaving the world');
+                $(this).unbind('mouseenter');
+            });
+            $('#colorbox').on({
+                mouseenter:function(){
+                    $('#message').text('Enter the box')
+                 },
+                mouseleave:function(){
+                    $('#message').text('Leave the box')
+                }
+
+            });
+            $('#colorbox').on('customEvent', function (event) {
+                console.log('custom Event Called');
+            });
+
+            $('#colorbox').trigger('customEvent');
+
+            // $('#target-link').on('click',function(event){
+            //     // event.preventDefault();
+            //     console.log('Link was triggered');
+            //     //event.stopPropagation();
+            //     //console.log('this');
+            // });
+
+           });
+       </script>
+   </body>
+   </html>
