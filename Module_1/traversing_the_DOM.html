@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        #item-li{
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!--Class Selector-->
+    <ul id="item-li">
+        <li id="item-list">
+            capsicum
+            <a href="http://google.com">Outside</a>
+           <div>
+               <a href="yahoo.com" id="inside-a-div">Inside</a>
+           </div>
+        </li>
+
+        <li>Mlik</li>
+        <li>Grapes</li>
+        <li>Oranges</li>
+    </ul>
+<!--Element selector-->
+<h1>Heading h1</h1>
+<div class="clsdemo">
+    Edureka Selector
+</div>
+<!--Attribute Selector-->
+<h1>jQurey Selector</h1>
+<a href="http://google.com" target="_blank">Link_1</a><br>
+<a href="http://google.com" target="_self">Link_2</a><br>
+<a href="http://google.com" target="_blank">Link_3</a><br>
+<div id="chain"></div>
+<input type="text" name="user name"><br>
+<input type="button" value="click me">
+
+    <script src="module_1/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+           $('input[type="button"]').click(function(){
+            //    $('#item-li ').find('a').css('color', 'red');
+            //  $('#item-list').children('a').css('color', 'red');
+                
+            //  $('#inside-a-div').closest('li').css('color', 'red');
+            $('#inside-a-div').parent().css('border', '2px solid red');
+
+
+           })
+        });
+    </script>
+</body>
+</html>

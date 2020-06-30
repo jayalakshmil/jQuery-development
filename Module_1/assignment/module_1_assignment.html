@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery module 1 assignment</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>   
+     <style>        
+        #img{
+            height: 200px;
+            width: 200px;
+        }
+        body{
+            margin: 200px;
+            padding: 40px 40px 40px 40px;
+            border: 2px solid tomato;
+        }
+        #web_ids{
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <input type="button" value="Input Button"> <br>
+        <input type="checkbox"> <br>
+        <input type="file"> <br>
+        <input type="hidden"> <br>
+        <input class="img" type="image" id="img" src="images/sun_flower.jpg"> <br>
+        <input id="paswrd" type="password"> <br>
+        <input type="radio">
+        <input type="reset">
+        <input type="submit">
+        <input type="text">
+        <select>
+          <option>Option</option>
+        </select>
+        <textarea></textarea>
+        <button>Button</button>
+      </form>
+<br>
+      <div id="web_ids">
+          <a href="http://www.google.com" target="_blank"> google </a> <br>
+          <a href="http://www.yahoo.com" > yahoo! </a>
+          <button id="btn">click me</button>
+
+      </div>
+
+      <script>
+          $(document).ready(function(){
+             //id selector 
+            $('#paswrd').css('border' ,'3px solid #723327');
+            $('#btn').click(function(){
+                $('a').css('color','red');
+            });
+
+            //Tag selector
+            $('textarea').css('border' ,'3px solid yellow'); 
+            $('button').css('border' ,'3px solid black' );
+
+            //Class Selector
+            $('.img').mouseover(function(){
+                $(this).css({'height':'300px','width':'300px'});
+            }).mouseout(function(){
+                $(this).css({'height':'200px','width':'200px'});
+  
+            });
+
+            //Attribute selector
+            $('a[target="_blank"]').append('new window');
+ 
+            
+          });
+      </script>
+</body>
+</html>
